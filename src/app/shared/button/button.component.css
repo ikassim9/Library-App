@@ -1,0 +1,17 @@
+button {
+  /* Add book button */
+width: 120px;
+height: 25px;
+background-color: #1B2034 ;
+color: #FFF;
+border: none;
+outline: none;
+border-radius: 10px;
+font-size: 12px;
+cursor: pointer;
+}
+
+
+.btnPrimary {
+
+}
