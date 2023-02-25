@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'library-app';
+  public showModal = false;
+
+  public openModal(): void{
+    this.showModal  =  true;
+  }
+
+  public closeModal(): void{
+    this.showModal  =  false;
+  }
 }

@@ -1,0 +1,41 @@
+
+
+  <form *ngIf="openModal" action="POST" class="modal-content">
+    <div class="content">
+      <label for="title">Title</label>
+
+      <input type="textArea" name="title" id="title" placeholder="Title">
+    </div>
+    <div class="content">
+      <label for="author">Author</label>
+
+      <input type="text" name="author" id="author">
+    </div>
+
+    <div class="content">
+      <label for="publication_date">Publication Date</label>
+
+      <input type="date" name="publication_date" id="publication_date">
+    </div>
+
+    <div class="content">
+      <label for="description">Description</label>
+
+      <textarea name="description" id="description" cols="20" rows="4"></textarea>
+    </div>
+
+
+
+    <div class="content">
+      <input type="file"  name="book_cover">
+    </div>
+
+    <div class="input-container">
+    <input type="submit" value="Save">
+    <input (click)="onCloseModalButtonClick()" type="button" value="Cancel">
+
+    </div>
+
+
+
+  </form>

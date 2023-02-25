@@ -1,1 +1,8 @@
-<app-button [buttonClass]="'btnPrimary'"  buttonName="Add" ></app-button>
+<app-navbar></app-navbar>
+
+<div class="container">
+  <app-button id="btn-addBook" [buttonClass]="'btnPrimary'" buttonName="Add" (onClick)="openModal()">
+  </app-button>
+</div>
+
+<app-modal [openModal]="showModal" (onCloseModal)="closeModal()"></app-modal>
