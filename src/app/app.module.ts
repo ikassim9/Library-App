@@ -5,7 +5,9 @@ import { AppComponent } from './app.component';
 import { ButtonComponent } from '../shared/button/button.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BookComponent } from './components/book/book.component';
+import {HttpClientModule} from '@angular/common/http';
 import { ModalComponent } from 'src/shared/modal/modal.component';
+import { FormsModule } from '@angular/forms';
  @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,8 @@ import { ModalComponent } from 'src/shared/modal/modal.component';
   ],
   imports: [
     BrowserModule,
-    BrowserModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [],

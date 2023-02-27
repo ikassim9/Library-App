@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Book } from 'src/models/book';
+import { BookService } from 'src/services/book.service';
 
 @Component({
   selector: 'app-modal',
@@ -11,6 +13,10 @@ export class ModalComponent implements OnInit {
 
   }
 
+constructor(private bookService: BookService){
+
+}
+
  @Input() public openModal: boolean | undefined;
 
  @Output() private onCloseModal = new EventEmitter();
@@ -18,6 +24,13 @@ export class ModalComponent implements OnInit {
 
  public onCloseModalButtonClick(): void{
   this.onCloseModal.emit();
+ }
+
+ onSubmit(book: Book): void{
+  this.onCloseModal.emit(); // do this to close form afte submission
+  this.bookService.addBook(book).subscribe(book => {
+    console.log('book added ' + book);
+  });
  }
 
 }

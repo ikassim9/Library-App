@@ -1,6 +1,9 @@
 form {
-  max-width: 350px;
-  margin: 3rem auto;
+  max-width: 450px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   border: none;
   padding: 2rem;
   border: 1px solid #000;

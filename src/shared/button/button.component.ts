@@ -13,6 +13,11 @@ export class ButtonComponent implements OnInit {
 
   @Output() onClick = new EventEmitter();
 
+
+  onClickButton(){
+    this.onClick.emit();
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {
   }

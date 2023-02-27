@@ -1,0 +1,13 @@
+
+#navbar {
+
+    background-color: #1B2034;
+    padding: 2rem;
+    margin-bottom: 20px;
+}
+
+#navbar > h1 {
+    color: #FFF;
+    font-size: 1.8em;
+
+}
