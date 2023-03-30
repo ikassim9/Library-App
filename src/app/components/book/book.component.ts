@@ -15,7 +15,7 @@ export class BookComponent implements OnInit {
   }
 
 
-  @Input() public book! : Book;
+  @Input() public book : Book | undefined;
 
 
 
