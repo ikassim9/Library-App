@@ -1,7 +1,45 @@
 .card {
 
-  background-color: red;
-  max-width: 350px;
-  height: 400px;
+  background-color: #FFF;
+  border-radius: 5px;
+  padding: 1rem;
+  border: 1px solid #777;
+  box-shadow: 5px 10px #888888;
+
+}
+
+.card-image {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card-content {
+  font-size: 0.9em;
+  padding:20px;
+  line-height: 1.4;
+
+}
+
+.card-content h2 {
+  margin-top: 0;
+}
+.card-content p {
+margin-bottom: 0;
+}
+
+.button-container {
+ display: flex;
+ justify-content: center;
+ gap: 20px;
+ padding-bottom: 10px;
+}
+
+h2, h3, h4 {
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 10px;
 
 }

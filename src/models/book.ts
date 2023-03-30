@@ -6,7 +6,7 @@ export interface Book {
 
   description : string;
 
-  bookCover: string;
+  bookCover: File;
 
   publicationDate: string;
 

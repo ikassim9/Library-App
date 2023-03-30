@@ -1,32 +1,32 @@
 <div class="wrapper">
-  <form  ngNativeValidate  *ngIf="openModal" #bookForm="ngForm" class="modal-content" (ngSubmit)="onSubmit(bookForm.value)">
+  <form  ngNativeValidate  *ngIf="openModal" #bookForm="ngForm" class="modal-content" (ngSubmit)="addBook(bookForm.value)">
     <div class="content">
       <label for="title">Title</label>
 
-      <input  type="textArea" name="title" id="title" placeholder="Title" ngModel required>
+      <input  type="textArea" name="title" id="title" placeholder="Title" ngModel>
     </div>
     <div class="content">
       <label for="author">Author</label>
 
-      <input type="text" name="author" id="author" ngModel required>
+      <input type="text" name="author" id="author" ngModel>
     </div>
 
     <div class="content">
       <label for="publicationDate">Publication Date</label>
 
-      <input type="date" name="publicationDate" id="publicationDate" ngModel required>
+      <input type="date" name="publicationDate" id="publicationDate" ngModel>
     </div>
 
     <div class="content">
       <label for="description">Description</label>
 
-      <textarea name="description" id="description" cols="20" rows="4" ngModel required></textarea>
+      <textarea name="description" id="description" cols="20" rows="4" ngModel required=""></textarea>
     </div>
 
 
 
     <div class="content">
-      <input type="file"  name="bookCover"ngModel required>
+      <input type="file"  name="bookCover" id="bookCover"  (change)="handleFileInput($event)" ngModel required accept="image/*">
     </div>
 
     <div class="input-container">

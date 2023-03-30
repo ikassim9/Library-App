@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -21,7 +21,10 @@ export class BookService {
 
   }
 
-  public addBook(book: Book): Observable<Book> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public addBook(book: any): Observable<Book> {
+
+
     return this.http.post<Book>(this.baseUrl + '/api/book' , book);
 
   }

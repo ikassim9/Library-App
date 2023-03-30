@@ -18,8 +18,6 @@ export class AppComponent {
     this.bookService.getBooks().subscribe((books) => {
       this.books = books;
     });
-
-
   }
 
   public openModal(): void{
