@@ -10,7 +10,6 @@ form {
   padding: 2rem;
   border: 1px solid #000;
   background-color: #fff;
-
   flex-direction: column;
   gap: 0.7rem;
 }

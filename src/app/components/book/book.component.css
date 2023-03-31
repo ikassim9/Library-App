@@ -2,7 +2,6 @@
 
   background-color: #FFF;
   border-radius: 5px;
-  padding: 1rem;
   border: 1px solid #777;
   box-shadow: 5px 10px #888888;
 
@@ -20,7 +19,6 @@
   font-size: 0.9em;
   padding:20px;
   line-height: 1.4;
-
 }
 
 .card-content h2 {

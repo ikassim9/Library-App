@@ -3,17 +3,16 @@
   <img class="card-image" src={{book?.bookCover}}>
 
   <div class="card-content">
-    <h3>Title: {{book?.title}}</h3>
-    <h3>Author: {{book?.author}}</h3>
-    <h3>Publication Date: {{book?.publicationDate}}</h3>
-    <p>Description:{{book?.description}}</p>
+    <h1>{{book?.title}}</h1>
+    <h2>By {{book?.author}}</h2>
+
 
   </div>
 
   <div class="button-container">
     <app-button buttonName="Edit"  [buttonClass]="'btnEdit'"></app-button>
 
-    <app-button buttonName="Delete"  [buttonClass]="'btnDelete'"></app-button>
+    <app-button buttonName="Delete"  [buttonClass]="'btnDelete'" (onClick)="deleteBook()"></app-button>
   </div>
 
 </article>
