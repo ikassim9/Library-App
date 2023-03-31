@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable, switchMap } from 'rxjs';
 import { Book } from 'src/models/book';
 import { BookService } from 'src/services/book.service';
 
@@ -9,15 +10,14 @@ import { BookService } from 'src/services/book.service';
 })
 export class AppComponent {
   title = 'library-app';
-  public books: Book[] = [];
+  public books: Observable<Book[]>;
   constructor(private bookService: BookService) {}
 
   public showModal = false;
 
   ngOnInit(): void {
-    this.bookService.getBooks().subscribe((books) => {
-      this.books = books;
-    });
+    this.books = this.bookService.refetch().pipe(
+      switchMap(() => this.bookService.getBooks()));
   }
 
   public openModal(): void{

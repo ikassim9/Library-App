@@ -10,7 +10,7 @@
 
 
 <div class="cards">
-<div *ngFor="let book of books">
+<div *ngFor="let book of books | async">
   <app-book [book]="book"></app-book>
 </div>
 
