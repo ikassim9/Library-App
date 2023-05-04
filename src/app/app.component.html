@@ -3,7 +3,7 @@
 <app-navbar></app-navbar>
 
 <div>
-  <app-button id="btn-addBook" [buttonClass]="'btnPrimary'" buttonName="Add" (onClick)="openModal()">
+  <app-button id="btn-addBook" [buttonClass]="'btnPrimary'" buttonName="Add" (onClick)="openModal(false)">
   </app-button>
 </div>
 
@@ -11,13 +11,13 @@
 
 <div class="cards">
 <div *ngFor="let book of books | async">
-  <app-book [book]="book"></app-book>
+  <app-book [book]="book" (onClick)="openModal(true)"></app-book>
 </div>
 
 </div>
 
 <div class="modal-wrapper">
-  <app-modal [openModal]="showModal" (onCloseModal)="closeModal()"></app-modal>
+  <app-modal [isEditMode]="isEditMode" [book]="data" *ngIf="showModal" #modalComponent  (close)="closeModal()"></app-modal>
 
 </div>
 

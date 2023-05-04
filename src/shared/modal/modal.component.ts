@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Book } from 'src/models/book';
 import { BookService } from 'src/services/book.service';
 
@@ -9,29 +10,44 @@ import { BookService } from 'src/services/book.service';
 })
 export class ModalComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  ngOnInit(): void {
 
-  }
 
-constructor(private bookService: BookService){
 
-}
+ @Input() public isEditMode: boolean | undefined;
 
- @Input() public openModal: boolean | undefined;
+ @Output() private close = new EventEmitter();
 
- @Output() private onCloseModal = new EventEmitter();
+ @Input() book: Book;
+
+ @ViewChild('bookForm', { static: true })userFrm: NgForm;
+
 
  private selectedFile!: File;
 
 
+  constructor(private bookService: BookService){}
 
- public onCloseModalButtonClick(): void{
-  this.onCloseModal.emit();
+
+   ngOnInit(): void {
+    if(this.isEditMode) {
+    setTimeout(() => {
+      this.userFrm.form.setValue({
+        author: this.book.author,
+        title: this.book.title,
+        publicationDate: this.book.publicationDate,
+        bookCover: '',
+        description: this.book.description,
+      });
+    });
+  }
+   }
+
+ public onCancelButtonClick(): void{
+  this.close.emit();
  }
 
- public addBook(book: Book): void{
 
-  this.onCloseModal.emit(); // do this to close form after submission
+ public addEditBook(book: Book): void{
   const formData = new FormData();
    formData.append('title', book.title);
    formData.append('author', book.author);
@@ -40,9 +56,33 @@ constructor(private bookService: BookService){
    formData.append('publicationDate', book.publicationDate);
 
 
-  this.bookService.addBook(formData).subscribe(response => {
-   console.log('book added ' + response);
-  });
+   // handle edit book
+   if(this.isEditMode){
+    formData.append('id',this.book.id);
+    formData.append('bookCoverUrl', this.book.bookCoverUrl);
+// check if user change book cover
+
+  const cover = formData.get('bookCover');
+    if(cover === 'undefined'){
+    formData.set('bookCover', this.book.bookCover);
+    }
+
+    this.bookService.editBook(formData, this.book.id).subscribe({
+      error: (err) => console.log(err)
+    });
+   }
+
+    // handle add book
+   else{
+    this.bookService.addBook(formData).subscribe({
+      error: (err) => console.log(err)
+    });
+   }
+
+   this.close.emit(); // do this to close form after submission
+
+
+
  }
 
 

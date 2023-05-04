@@ -9,6 +9,8 @@ export interface Book {
 
   bookCover: File;
 
+  bookCoverUrl: string;
+
   publicationDate: string;
 
 }
